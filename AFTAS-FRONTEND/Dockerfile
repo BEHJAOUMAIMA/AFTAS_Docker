@@ -7,4 +7,4 @@ RUN npm run build --prod
 
 FROM nginx:alpine
 COPY nginx-custom.conf /etc/nginx/conf.d/default.conf
-COPY --from=angular /app/dist/aftas/browser /usr/share/nginx/html
+COPY --from=angular /app/dist/aftas-front-end /usr/share/nginx/html

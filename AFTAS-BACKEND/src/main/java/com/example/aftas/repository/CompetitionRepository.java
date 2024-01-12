@@ -13,6 +13,5 @@ public interface CompetitionRepository extends JpaRepository<Competition, Long> 
     Competition findByDate(LocalDate date);
     Competition getCompetitionByCode(String code);
 
-    Page<Competition> getCompetitions(Page page, Size size);
 
 }

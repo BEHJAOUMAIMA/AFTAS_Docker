@@ -44,8 +44,8 @@ public class CompetitionServiceImpl implements CompetitionService {
     }
 
     @Override
-    public Page<Competition> findAll(Pageable pageable , Size size) {
-        Page<Competition> competitions = competitionRepository.getCompetitions(pageable.withPage(1), size.max(3));
+    public List<Competition> findAll() {
+        List<Competition> competitions = competitionRepository.findAll();
         if (competitions.isEmpty()) {
             throw new OperationException("No competitions found");
         }

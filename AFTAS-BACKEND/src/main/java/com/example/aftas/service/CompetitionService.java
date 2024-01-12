@@ -14,7 +14,7 @@ import java.util.Optional;
 @Service
 public interface CompetitionService {
     Competition save(Competition competition);
-    Page<Competition> findAll(Pageable pageable, Size size);
+    List<Competition> findAll();
     Optional<Competition> findById(Long id);
     Competition update(Competition competitionUpdated, Long id);
     void delete(Long id);

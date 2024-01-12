@@ -2,20 +2,13 @@ version: "2"
 
 services:
   mysql:
-    image: mysql:latest
+    image: mariadb:latest
     container_name: mysql
-    healthcheck:
-      test: ["CMD-SHELL", "mysqladmin ping -hlocalhost -uroot"]
-      interval: 5s
-      timeout: 5s
-      retries: 5
     environment:
-      MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: aftas_v1
-      MYSQL_USER: root
-      MYSQL_PASSWORD: ""
+      MYSQL_ALLOW_EMPTY_PASSWORD: true
     volumes:
-      - mysql:/var/lib/mysql
+      - data:/var/lib/mysql
     ports:
       - "3306:3306"
 
@@ -24,7 +17,6 @@ services:
     container_name: aftas_fe
     build:
       context: .
-      dockerfile: Dockerfile
     ports:
       - "4200:4200"
     depends_on:
@@ -34,7 +26,6 @@ services:
     image: aftas_backend
     build:
       context: .
-      dockerfile: Dockerfile
     container_name: aftas_be
     depends_on:
       - mysql
@@ -44,8 +35,8 @@ services:
       - SPRING_DATASOURCE_PASSWORD:""
       - SPRING_JPA_HIBERNATE_DDL_AUTO=update
     ports:
-      - "8081:8081"
+      - "8080:8080"
 
 volumes:
-  mysql:
+  data:
     driver: local
