@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="form-body">
+    <div class="row">
+      <div class="form-holder">
+        <div class="form-content">
+          <div class="form-items">
+            <h3>Add Hunting for Members</h3>
+            <p>Fill in the data below.</p>
+            <form>
+              <div class="col-md-12">
+                <select class="form-select mt-3" name="competitionId" [(ngModel)]="selectedCompetitionId" (change)="onCompetitionSelected()">
+                  <option selected disabled value="">Select Competition</option>
+                  <option *ngFor="let competition of competitions" [value]="competition.id">{{ competition.code }}</option>
+                </select>
+              </div>
+
+              <div class="col-md-12">
+                <select class="form-select mt-3" name="memberId" [(ngModel)]="selectedMemberId">
+                  <option selected disabled value="">Select Member</option>
+                  <option *ngFor="let member of members" [value]="member.id">{{ member.name }}</option>
+                </select>
+              </div>
+
+              <div class="col-md-12">
+                <select class="form-select mt-3" name="fish" [(ngModel)]="selectedFishName" required>
+                  <option selected disabled value="">Select Fish</option>
+                  <option *ngFor="let fish of fishes" [value]="fish.name">{{ fish.name }}</option>
+                </select>
+              </div>
+
+              <div class="col-md-12">
+                <input class="form-control mt-3" type="number" name="weight" [(ngModel)]="weight" placeholder="Weight" required>
+              </div>
+            </form>
+            <div class="form-button mt-3">
+              <button type="button" (click)="addHunting()" class="btn btn-primary">Add Hunting</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

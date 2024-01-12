@@ -1,0 +1,47 @@
+<header>
+  <div class="d-flex flex-column flex-shrink-0 sidebar-wrap">
+    <ul class="nav nav-pills flex-column mb-auto">
+
+      <li [routerLinkActive]="['active']">
+        <a routerLink="/dashboard" class="nav-link mt-2 mb-3 ms-3">
+          <div class="icon-wrap">
+            <i class="fas fa-home" style="font-size: 14px" ></i>
+          </div>
+          <span>Dashboard</span>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/member" class="nav-link mb-3 ms-3">
+          <div class="icon-wrap">
+            <i class="fas fa-users" style="font-size: 14px"></i>
+          </div>
+          <span>Members</span>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/competition" class="nav-link mb-3 ms-3">
+          <div class="icon-wrap">
+            <i class="fas fa-trophy" style="font-size: 14px"></i>
+          </div>
+          <span>Competitions</span>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/hunting" class="nav-link mb-3 ms-3">
+          <div class="icon-wrap">
+            <i class="fas fa-fish" style="font-size: 14px"></i>
+          </div>
+          <span>Hunting</span>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/result" class="nav-link ms-3">
+          <div class="icon-wrap">
+            <i class="fas fa-poll" style="font-size: 14px"></i>
+          </div>
+          <span>Results</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</header>

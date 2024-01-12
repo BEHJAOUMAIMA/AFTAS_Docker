@@ -1,0 +1,95 @@
+<div class="container-fluid">
+  <div class="row d-flex justify-content-between align-items-center my-4">
+    <div class="col-md-3">
+      <p class="my-auto fs-3 text-white">Competitions</p>
+    </div>
+
+    <button data-bs-toggle="modal" data-bs-target="#addCompetitionModal" class="btn btn-light border-0 text-white" style="width: 250px; background-color: #892c5a"><span><i class="fas fa-plus me-2" style="font-size: 12px"></i></span>New Competition</button>
+  </div>
+  <div class="table-responsive">
+    <table class="table table-striped custom-table">
+      <thead>
+      <tr>
+        <th class="text-center" scope="col">Id</th>
+        <th class="text-center" scope="col">Competition Code</th>
+        <th class="text-center" scope="col">Date</th>
+        <th class="text-center" scope="col">Start Time</th>
+        <th class="text-center" scope="col">End Time</th>
+        <th class="text-center" scope="col">Location</th>
+        <th class="text-center" scope="col">Number Of Participants</th>
+        <th class="text-center" scope="col">Amount</th>
+        <th class="text-center" scope="col">Status</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let competition of competitions" scope="row">
+        <td class="text-center">{{competition.id}}</td>
+        <td class="text-center"><a>{{competition.code}}</a></td>
+        <td class="text-center">{{competition.date}}</td>
+        <td class="text-center">{{competition.startTime}}</td>
+        <td class="text-center">{{competition.endTime}}</td>
+        <td class="text-center">{{competition.Location}}</td>
+        <td class="text-center">{{competition.NumberOfParticipants}}</td>
+        <td class="text-center"><a href="" class="more">{{competition.amount}} MAD</a></td>
+        <td colspan="text-center">
+          <span class="text-center d-flex mx-auto justify-content-center badge bg-{{ getStatusBadgeColor(competition) }}">{{ getStatusTextClass(competition) }}</span>
+        </td>
+
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="modal fade" id="addCompetitionModal"  tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content text-white px-4 py-2" style="background-color: #191C24;">
+        <div class="modal-header border-0">
+          <h5 class="modal-title" id="exampleModalLabel" >Add Competition</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="row">
+              <div class="mb-3 col-md-6">
+                <label for="date" class="form-label">Date</label>
+                <input type="text" class="form-control text-white" id="date" name="date" [(ngModel)]="newCompetition.date"  placeholder="Enter Competition Date" style="background-color: transparent">
+              </div>
+
+              <div class="mb-3 col-md-6">
+                <label for="startTime" class="form-label">Start Time</label>
+                <input type="text" class="form-control text-white" id="startTime" name="startTime" [(ngModel)]="newCompetition.startTime"  placeholder="Enter Competition Start Time" style="background-color: transparent">
+              </div>
+            </div>
+            <div class="row">
+              <div class="mb-3 col-md-6">
+                <label for="endTime" class="form-label">End Time</label>
+                <input type="text" class="form-control text-white" id="endTime" name="endTime" [(ngModel)]="newCompetition.endTime"  placeholder="Enter Competition end Time" style="background-color: transparent">
+              </div>
+
+              <div class="mb-3 col-md-6">
+                <label for="NumberOfParticipants" class="form-label">Number of participants</label>
+                <input type="number" class="form-control text-white" id="NumberOfParticipants" name="numberOfParticipants" [(ngModel)]="newCompetition.numberOfParticipants" placeholder="Enter Number Of Participants" style="background-color: transparent">
+              </div>
+            </div>
+            <div class="row">
+
+              <div class="mb-3 col-md-6">
+                <label for="Location" class="form-label">Competition Location</label>
+                <input type="text" class="form-control text-white" id="Location" name="Location"[(ngModel)]="newCompetition.Location"  placeholder="Enter Competition Location" style="background-color: transparent">
+              </div>
+              <div class="mb-3 col-md-6">
+                <label for="amount" class="form-label">Competition Amount</label>
+                <input type="number" class="form-control text-white" id="amount" name="amount" [(ngModel)]="newCompetition.amount"  placeholder="Enter Competition Amount" style="background-color: transparent">
+              </div>
+            </div>
+
+          </form>
+        </div>
+        <div class="modal-footer border-0">
+          <button type="button" class="btn btn-primary" (click)="addCompetition()">Add Competition</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

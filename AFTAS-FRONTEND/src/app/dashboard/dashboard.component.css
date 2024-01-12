@@ -1,0 +1,18 @@
+.banner{
+  background-image: url("/assets/img/chasse-sous-marine.jpeg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 300px;
+  border-radius: 0 10px 10px 0;
+}
+
+.banner-title{
+  font-size: 30px;
+  font-family: 'Zeyada', cursive;
+  font-weight: bold;
+}
+
+.banner-text{
+  font-size: 12px;
+}

@@ -1,0 +1,34 @@
+<div class="container-fluid mt-5">
+  <div class="row mt-5">
+    <p class="text-white fs-4"> Results of Competitions</p>
+  </div>
+
+  <div class="row mb-4">
+    <form>
+      <div class="col-md-12">
+        <select class="form-select mt-3" name="competitionId" [(ngModel)]="selectedCompetitionId" (change)="updatePodium()">
+          <option selected disabled value="">Select Competition</option>
+          <option *ngFor="let competition of competitions" [value]="competition.id">
+            {{ competition.code }}
+          </option>
+        </select>
+      </div>
+    </form>
+  </div>
+
+  <div class="row mt-4">
+    <p class="text-white fs-5 fw-bold mt-4">Competition Podium :</p>
+  </div>
+
+  <div class="row d-flex justify-content-center align-items-center">
+    <ul class="podium mt-5">
+      <li *ngFor="let ranking of podiumList">
+        <span>
+                  {{ ranking.name }} {{ ranking.familyName }}
+        </span>
+        <p> {{ ranking.score }}</p>
+      </li>
+    </ul>
+
+  </div>
+</div>
